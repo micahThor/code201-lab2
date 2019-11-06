@@ -1,0 +1,27 @@
+header {
+  text-align: center;
+  background: cornflowerblue;
+  font-family: Arial, Helvetica, sans-serifive;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+body {
+  background: lightgreen;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background: aliceblue;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 3%;
+  margin-right: 3%;
+}

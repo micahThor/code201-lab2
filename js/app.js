@@ -1,6 +1,6 @@
 'use strict';
 
-// userCount increases with each 'Y' answer prompt
+// userCount increases with each 'Y' or 'YES' answer
 var userCount = 0;
 
 // get input from user
@@ -9,7 +9,7 @@ var user = prompt("Welcome to my page.  Please enter your name.");
 
 var dogQuestion = prompt("Okay, " + user + ".  Do you think I like dogs? (Y/N)").toUpperCase();
 // console.log("Likes dogs: ", dogQuestion);
-if (dogQuestion === "Y") {
+if (dogQuestion === "Y" || dogQuestion === "YES") {
   alert("That's correct!");
   userCount++;
 } else {
@@ -18,7 +18,7 @@ if (dogQuestion === "Y") {
 
 var pizzaQuestion = prompt("Okay, " + user + ".  Do you think I like pizza? (Y/N)").toUpperCase();
 // console.log("Likes pizza: ", pizzaQuestion);
-if (pizzaQuestion === "Y") {
+if (pizzaQuestion === "Y" || pizzaQuestion === "YES") {
   alert("That's correct!");
   userCount++;
 } else {
@@ -27,7 +27,7 @@ if (pizzaQuestion === "Y") {
 
 var soccerQuestion = prompt("Okay, " + user + ".  Do you think I like soccer? (Y/N)").toUpperCase();
 // console.log("Likes soccer: ", soccerQuestion);
-if (soccerQuestion === "Y") {
+if (soccerQuestion === "Y" || soccerQuestion === "YES") {
   alert("That's correct!");
   userCount++;
 } else {
@@ -36,7 +36,7 @@ if (soccerQuestion === "Y") {
 
 var hikingQuestion = prompt("Okay, " + user + ".  Do you think I like hiking? (Y/N)").toUpperCase();
 // console.log("Likes hiking: ", hikingQuestion);
-if (hikingQuestion === "Y") {
+if (hikingQuestion === "Y" || hikingQuestion === "YES") {
   alert("That's correct!");
   userCount++;
 } else {
@@ -45,7 +45,7 @@ if (hikingQuestion === "Y") {
 
 var cardGameQuestion = prompt("Okay, " + user + ".  Do you think I like card games? (Y/N)").toUpperCase();
 // console.log("Likes card games: ", cardGameQuestion);
-if (cardGameQuestion === "Y") {
+if (cardGameQuestion === "Y" || cardGameQuestion === "YES") {
   alert("That's correct!");
   userCount++;
 } else {

@@ -8,3 +8,6 @@ This project is an on-going effort to utilize html, css, and javascript.  The pr
 - **Guessing Number Game**:  This interacts with the user as they attempt to guess the *special* number.
 - **Guessing My Birth Month**:  Guess my birth month.  I'll give you some attemps before I stop you.
 - **Final Message**:  This feature gives output to user based off their guesses.
+
+### Contributions
+- **Refactor** : Micah & Phong: Added message for incorrect color guess.

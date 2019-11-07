@@ -71,7 +71,9 @@ function questionGuessNum() {
     } else if (userNumberGuess < 17) {
       alert('That\'s too low. Guesses remaining: ' + (4 - numOfGuesses));
       numOfGuesses++;
-    }
+     } //else if (userNumberGuess === NaN || userNumberGuess === null) {
+    //   alert('That\'s not a number. Guesses remaining: ' + (4 - numOfGuesses));
+    // }
   }
   // tell user they didn't guess correctly and give them answer
   if (numOfGuesses > 4) {
@@ -89,7 +91,7 @@ function guessColor() {
   // keep track if user has guessed right answer
   var flag;
 
-  while (numOfGuesses <= 6 && flag !== true) {
+  while (numOfGuesses < 6 && flag !== true) {
     // get user guess
     var userColorGuess = prompt('Try and guess my favorite color (guesses remaining: ' + (6 - numOfGuesses) + '):').toLowerCase();
     for (var guess=0; guess < myFavColors.length; guess++) {
@@ -101,6 +103,11 @@ function guessColor() {
     }
     // user guessed wrong and guess count increases
     numOfGuesses++;
+    alert('Your guess was incorrect. Please guess again!');
+  }
+
+  if(flag === false) {
+    alert('You did not guess correctly within the guess cap. Sorry!')
   }
 
   // display all possible answers

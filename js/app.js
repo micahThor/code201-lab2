@@ -101,7 +101,6 @@ function guessColor() {
     }
     // user guessed wrong and guess count increases
     numOfGuesses++;
-    alert('Your guess was incorrect. Please guess again!');
   }
 
   if(flag === false) {

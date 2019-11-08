@@ -71,9 +71,7 @@ function questionGuessNum() {
     } else if (userNumberGuess < 17) {
       alert('That\'s too low. Guesses remaining: ' + (4 - numOfGuesses));
       numOfGuesses++;
-     } //else if (userNumberGuess === NaN || userNumberGuess === null) {
-    //   alert('That\'s not a number. Guesses remaining: ' + (4 - numOfGuesses));
-    // }
+     }
   }
   // tell user they didn't guess correctly and give them answer
   if (numOfGuesses > 4) {

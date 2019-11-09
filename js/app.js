@@ -3,16 +3,29 @@
 // function prompts user to guess question and alerts user with 'correct/incorrect' based of their guess
 function personalQuestions() {
 
-  var questionBank = ['Okay, ' + user + '.  Do you think I like dogs? (Y/N)',
-  'Okay, ' + user + '.  Do you think I like pizza? (Y/N)',
-  'Okay, ' + user + '.  Do you think I like soccer? (Y/N)',
+  var questionBank = ['Okay, ' + user + '.  Do you think I like dogs? (y/n)',
+  'Okay, ' + user + '.  Do you think I like pizza? (y/n)',
+  'Okay, ' + user + '.  Do you think I like soccer? (y/n)',
   'Okay, ' + user + '.  Do you think I like hiking? (Y/N)',
-  'Okay, ' + user + '.  Do you think I like card games? (Y/N)'];
+  'Okay, ' + user + '.  Do you think I like card games? (y/n)'];
 
-  for (var question = 0; question < questionBank.length; question++) {
-    var userAnswer = prompt(questionBank[question]).toUpperCase();
+  var userAnswer;
+  // flag validates user input
+  var flag = false;
 
-    if (userAnswer === 'Y' || userAnswer === 'YES') {
+  for (var question = 0; question < questionBank.length; question++, flag = false) {
+
+    while (!flag) {
+      userAnswer = prompt(questionBank[question]).toLowerCase();
+
+      if (userAnswer === 'y' || userAnswer === 'n') {
+        flag = true;
+      } else {
+        alert('Must be "y" or "n" answers only');
+      }
+    }
+
+    if (userAnswer === 'y') {
       alert('That\'s correct!');
       correctUserGuessCount++;
     } else {
@@ -23,28 +36,29 @@ function personalQuestions() {
 
 // function interacts with user based off their guess of the special number of 17
 function questionGuessNum() {
-  // track num of guesses
-  var numOfGuesses = 1;
+  
+  var allowableGuesses = 4;
+  var numofGuesses;
+  var userNumberGuess;
 
-  while (numOfGuesses <= 4) {
+  for (numofGuesses = 1; numofGuesses <= allowableGuesses; numofGuesses++) {
     // get user's guess
-    var userNumberGuess = parseInt(prompt('Guess a number between 1 and 25.'));
+    userNumberGuess = parseInt(prompt('Guess a number between 1 and 25.'));
     // eval guess
     if (userNumberGuess === 17) {
       alert('You win!  That\'s the special number.  It was 17!');
       correctUserGuessCount++;
       break;
     } else if (userNumberGuess > 17) {
-      alert('That\'s too high.  Guesses remaining: ' + (4 - numOfGuesses));
-      numOfGuesses++;
+      alert('That\'s too high.  Guesses remaining: ' + (4 - numofGuesses));
     } else if (userNumberGuess < 17) {
-      alert('That\'s too low. Guesses remaining: ' + (4 - numOfGuesses));
-      numOfGuesses++;
+      alert('That\'s too low. Guesses remaining: ' + (4 - numofGuesses));
     }
-  }
-  // tell user they didn't guess correctly and give them answer
-  if (numOfGuesses > 4) {
-    alert('Thanks for playing but you didn\'t get the number.  It was 17!');
+
+    // tell user they didn't guess correctly and give them answer
+    if (numofGuesses === 4) {
+      alert('Thanks for playing but you didn\'t get the number.  It was 17!');
+    }
   }
 }
 
@@ -55,11 +69,12 @@ function guessColor() {
   // track num of guesses
   var numOfGuesses = 0;
   // keep track if user has guessed right answer
-  var flag;
+  var flag = false;
 
   while (numOfGuesses < 6 && flag !== true) {
     // get user guess
     var userColorGuess = prompt('Try and guess my favorite color (guesses remaining: ' + (6 - numOfGuesses) + '):').toLowerCase();
+    // iterate through list to see if user matches one of my colors
     for (var guess = 0; guess < myFavColors.length; guess++) {
       if (userColorGuess === myFavColors[guess]) {
         alert(userColorGuess + ' is one of my favorite colors!  Well done.');
@@ -70,7 +85,7 @@ function guessColor() {
     // user guessed wrong and guess count increases
     numOfGuesses++;
   }
-  
+
   // User used up all guesses and gets message
   if (flag === false) {
     alert('You did not guess correctly within the guess cap. Sorry!')
@@ -95,24 +110,19 @@ function displayCustomMessage(count) {
   }
 }
 
+// function drives the question game
+function main() {
+  personalQuestions();
+  questionGuessNum();
+  guessColor()
+  displayCustomMessage(correctUserGuessCount);
+}
 
-// correctUserGuessCount increases with each 'Y' or 'YES' answer
+// correctUserGuessCount increases with each 'Y' or correct guess
 var correctUserGuessCount = 0;
-
-// get input from user
+// get name input from user
 var user = prompt('Welcome to my page.  Please enter your name.');
-
-// User interacts with prompt in attempt to guess personal questions about Micah T
-personalQuestions();
-
-// User interacts with prompt in attempt to guess the special number
-questionGuessNum();
-
-// User interacts with prompt in attempt to guess one of my favorite colors
-guessColor()
-
-// Display custom message based off how many answers user got right
-displayCustomMessage(correctUserGuessCount);
+main();
 
 
 

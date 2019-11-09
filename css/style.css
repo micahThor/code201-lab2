@@ -2,13 +2,16 @@ header {
   background: cornflowerblue;
   margin-left: 3%;
   margin-right: 3%;
-  padding: 3px 0px 2px 0px;
+  padding: 2px 0px 2px 0px;
   border-radius: 8px;
   box-shadow: 5px 5px aliceblue;
   position: relative;
 }
 body {
   background: lightgreen;
+  outline-style: groove;
+  outline-color: cornflowerblue;
+  outline-width: 20px;
 }
 h1 {
   font-family: Arial, Helvetica, sans-serifive;

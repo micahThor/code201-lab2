@@ -1,7 +1,7 @@
 'use strict';
 
 // function prompts user to guess question and alerts user with 'correct/incorrect' based of their guess
-function personalQuestions() {
+function personalQuestions(user) {
 
   var questionBank = ['Okay, ' + user + '.  Do you think I like dogs? (y/n)',
   'Okay, ' + user + '.  Do you think I like pizza? (y/n)',
@@ -100,28 +100,30 @@ function guessColor() {
 }
 
 // function alerts user with final message based off the number of their correct answers
-function displayCustomMessage(count) {
-  if (count > 4) {
+function displayCustomMessage(user) {
+  if (correctUserGuessCount > 4) {
     alert('Hey, ' + user + '.  You answered ' + correctUserGuessCount + '/7 questions correctly.  Well done!');
-  } else if (count === 3) {
+  } else if (correctUserGuessCount === 3) {
     alert('Hey, ' + user + '.  You answered ' + correctUserGuessCount + '/7 questions correctly.  Not bad...');
-  } else if (count < 3) {
+  } else if (correctUserGuessCount < 3) {
     alert('Hey, ' + user + '.  You answered ' + correctUserGuessCount + '/7 questions correctly  Refresh and try again!');
   }
 }
 
 // function drives the question game
 function main() {
-  personalQuestions();
+
+  // get name input from user
+  var userName = prompt('Welcome to my page.  Please enter your name.');
+
+  personalQuestions(userName);
   questionGuessNum();
   guessColor()
-  displayCustomMessage(correctUserGuessCount);
+  displayCustomMessage(userName);
 }
 
 // correctUserGuessCount increases with each 'Y' or correct guess
 var correctUserGuessCount = 0;
-// get name input from user
-var user = prompt('Welcome to my page.  Please enter your name.');
 main();
 
 

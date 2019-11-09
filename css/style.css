@@ -1,12 +1,18 @@
 header {
-  text-align: center;
   background: cornflowerblue;
-  font-family: Arial, Helvetica, sans-serifive;
   margin-left: 3%;
   margin-right: 3%;
+  padding: 3px 0px 2px 0px;
+  border-radius: 8px;
+  box-shadow: 5px 5px aliceblue;
+  position: relative;
 }
 body {
   background: lightgreen;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serifive;
+  text-align: center;
 }
 h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -15,8 +21,10 @@ h2 {
   margin-left: 10%;
   margin-right: 10%;
   box-shadow: 5px 5px cornflowerblue;
+  border-radius: 8px;
 }
 p {
+  text-align: justify;
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 5%;
   margin-right: 5%;
@@ -25,4 +33,11 @@ ul {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 3%;
   margin-right: 3%;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  border-radius: 50%;
 }

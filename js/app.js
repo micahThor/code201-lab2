@@ -6,7 +6,7 @@ function personalQuestions(user) {
   var questionBank = ['Okay, ' + user + '.  Do you think I like dogs? (y/n)',
   'Okay, ' + user + '.  Do you think I like pizza? (y/n)',
   'Okay, ' + user + '.  Do you think I like soccer? (y/n)',
-  'Okay, ' + user + '.  Do you think I like hiking? (Y/N)',
+  'Okay, ' + user + '.  Do you think I like hiking? (y/n)',
   'Okay, ' + user + '.  Do you think I like card games? (y/n)'];
 
   var userAnswer;

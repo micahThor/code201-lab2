@@ -3,11 +3,17 @@
 // function prompts user to guess question and alerts user with 'correct/incorrect' based of their guess
 function personalQuestions(user) {
 
-  var questionBank = ['Okay, ' + user + '.  Do you think I like dogs? (y/n)',
-  'Okay, ' + user + '.  Do you think I like pizza? (y/n)',
-  'Okay, ' + user + '.  Do you think I like soccer? (y/n)',
+  var questionBank = ['Okay, ' + user + '.  Do you think I like the Seattle Sounders? (y/n)',
+  'Okay, ' + user + '.  Do you think I like golf? (y/n)',
+  'Okay, ' + user + '.  Do you think I like licorice candy? (y/n)',
   'Okay, ' + user + '.  Do you think I like hiking? (y/n)',
-  'Okay, ' + user + '.  Do you think I like card games? (y/n)'];
+  'Okay, ' + user + '.  Do you think I like parkour? (y/n)'];
+
+  var answerBank = ['y', 'n', 'y', 'y', 'n'];
+
+  var correctPrompt = ['Yes I love the Sounders!', 'That\'s right...not for me', 'Good guess, you are right!', 'Correct.  I love me a liesure trail', 'Right.  Looks dangerous'];
+  
+  var incorrectPrompt = ['Wrong.  Go Sounders!', 'Sorry, It\'s not for me', 'I actually enjoy licorice', 'Incorrect.  I enjoy hiking', 'No way!  Sorry that is wrong'];
 
   var userAnswer;
   // flag validates user input
@@ -16,23 +22,37 @@ function personalQuestions(user) {
   for (var question = 0; question < questionBank.length; question++, flag = false) {
 
     while (!flag) {
+      // prompt current question
       userAnswer = prompt(questionBank[question]).toLowerCase();
 
+      // validate user input
       if (userAnswer === 'y' || userAnswer === 'n') {
         flag = true;
       } else {
         alert('Must be "y" or "n" answers only');
       }
-    }
 
-    if (userAnswer === 'y') {
-      alert('That\'s correct!');
-      correctUserGuessCount++;
-    } else {
-      alert('That\'s incorrect');
+      // if user answers yes and the answer is yes
+      if (userAnswer === 'y' && answerBank[question] === 'y') {
+        alert(correctPrompt[question]);
+        correctUserGuessCount++;
+      // if the user answers no and the answer is no
+      } else if (userAnswer === 'n' && answerBank[question] === 'n') {
+          alert(correctPrompt[question]);
+          correctUserGuessCount++;
+      // if the user answers yes and the answer is no
+      } else if (userAnswer === 'y' && answerBank[question] === 'n') {
+          alert(incorrectPrompt[question]);
+      // if the user answers no and the answer is yes
+      } else if (userAnswer === 'n' && answerBank[question] === 'y') {
+          alert(incorrectPrompt[question]);
+      } 
+      
     }
   }
-}
+    
+  }
+
 
 // function interacts with user based off their guess of the special number of 17
 function questionGuessNum() {

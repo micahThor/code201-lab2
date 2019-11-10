@@ -11,47 +11,40 @@ function personalQuestions(user) {
 
   var answerBank = ['y', 'n', 'y', 'y', 'n'];
 
-  var correctPrompt = ['Yes I love the Sounders!', 'That\'s right...not for me', 'Good guess, you are right!', 'Correct.  I love me a liesure trail', 'Right.  Looks dangerous'];
+  var correctPrompt = ['Yes I love the Sounders!', 'That\'s right...not for me', 'Good guess, you are right!', 'Correct.  Leisure trails are cool', 'Right.  Looks dangerous'];
   
   var incorrectPrompt = ['Wrong.  Go Sounders!', 'Sorry, It\'s not for me', 'I actually enjoy licorice', 'Incorrect.  I enjoy hiking', 'No way!  Sorry that is wrong'];
 
   var userAnswer;
-  // flag validates user input
-  var flag = false;
+  // flag validates user input.  resets to false after every loop
+  var userInputFlag = false;
 
-  for (var question = 0; question < questionBank.length; question++, flag = false) {
+  for (var question = 0; question < questionBank.length; question++, userInputFlag = false) {
 
-    while (!flag) {
+    while (!userInputFlag) {
+
       // prompt current question
       userAnswer = prompt(questionBank[question]).toLowerCase();
 
       // validate user input
       if (userAnswer === 'y' || userAnswer === 'n') {
-        flag = true;
+        userInputFlag = true;
       } else {
         alert('Must be "y" or "n" answers only');
       }
 
-      // if user answers yes and the answer is yes
-      if (userAnswer === 'y' && answerBank[question] === 'y') {
+      // eval user input verses array of answers if flag is true
+      if (userAnswer === answerBank[question] && userInputFlag) {
         alert(correctPrompt[question]);
         correctUserGuessCount++;
-      // if the user answers no and the answer is no
-      } else if (userAnswer === 'n' && answerBank[question] === 'n') {
-          alert(correctPrompt[question]);
-          correctUserGuessCount++;
-      // if the user answers yes and the answer is no
-      } else if (userAnswer === 'y' && answerBank[question] === 'n') {
-          alert(incorrectPrompt[question]);
-      // if the user answers no and the answer is yes
-      } else if (userAnswer === 'n' && answerBank[question] === 'y') {
-          alert(incorrectPrompt[question]);
-      } 
+      } else if (userInputFlag) {
+        alert(incorrectPrompt[question]);
+      }
       
     }
   }
     
-  }
+}
 
 
 // function interacts with user based off their guess of the special number of 17
